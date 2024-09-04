@@ -1,5 +1,4 @@
-import { createContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { createContext } from "react";
 
 export const LinearContext = createContext();
 
