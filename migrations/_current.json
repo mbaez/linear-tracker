@@ -1,0 +1,76 @@
+{
+  "tables": {
+    "time_entries": {
+      "tableName": "time_entries",
+      "schema": {
+        "id": {
+          "primaryKey": true,
+          "defaultValue": {
+            "internal": true,
+            "value": "Sequelize.UUIDV4"
+          },
+          "field": "id",
+          "seqType": "Sequelize.UUID"
+        },
+        "userId": {
+          "allowNull": false,
+          "field": "userId",
+          "seqType": "Sequelize.UUID"
+        },
+        "email": {
+          "allowNull": false,
+          "field": "email",
+          "seqType": "Sequelize.STRING"
+        },
+        "issueId": {
+          "allowNull": false,
+          "field": "issueId",
+          "seqType": "Sequelize.UUID"
+        },
+        "issue": {
+          "allowNull": false,
+          "field": "issue",
+          "seqType": "Sequelize.STRING"
+        },
+        "issueTitle": {
+          "allowNull": false,
+          "field": "issueTitle",
+          "seqType": "Sequelize.STRING"
+        },
+        "spentTime": {
+          "allowNull": false,
+          "field": "spentTime",
+          "seqType": "Sequelize.FLOAT"
+        },
+        "note": {
+          "field": "note",
+          "seqType": "Sequelize.STRING"
+        },
+        "date": {
+          "allowNull": false,
+          "field": "date",
+          "seqType": "Sequelize.DATEONLY"
+        },
+        "createdAt": {
+          "allowNull": false,
+          "field": "createdAt",
+          "seqType": "Sequelize.DATE"
+        },
+        "updatedAt": {
+          "allowNull": false,
+          "field": "updatedAt",
+          "seqType": "Sequelize.DATE"
+        },
+        "deletedAt": {
+          "field": "deletedAt",
+          "seqType": "Sequelize.DATE"
+        }
+      },
+      "indexes": []
+    }
+  },
+  "path": "./migrations/_current.json",
+  "backupPath": "./migrations/_current_bak.json",
+  "exists": false,
+  "revision": 1
+}
