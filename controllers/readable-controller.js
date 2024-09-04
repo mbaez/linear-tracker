@@ -17,7 +17,7 @@ module.exports = class ReadableController {
   }
 
   /**
-   * Get the keycloak access token from the request.
+   * Get the token access token from the request.
    *
    * @param {Express.Request} req Represents the HTTP request object.
    * @param {Express.Response} res Represents the HTTP response that an Express app sends when

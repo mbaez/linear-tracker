@@ -24,7 +24,6 @@
     "fs-promise": "^2.0.3",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.2",
-    "keycloak-connect": "^24.0.4",
     "pg": "^8.11.5",
     "qs": "^6.13.0",
     "sequelize": "^6.37.3"
