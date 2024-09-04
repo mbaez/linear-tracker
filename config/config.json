@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "postgres",
+    "use_env_variable": "DB_CONNECTION_URL"
+  },
+  "test": {
+    "dialect": "postgres",
+    "use_env_variable": "DB_CONNECTION_URL"
+  },
+  "production": {
+    "dialect": "postgres",
+    "use_env_variable": "DB_CONNECTION_URL"
+  }
+}

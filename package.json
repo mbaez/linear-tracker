@@ -1,38 +1,38 @@
 {
   "name": "linear-tracker",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "1.0.0",
+  "description": "Simple time tracker for line",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file=.env.local index.js",
+    "dev": "nodemon --env-file=.env.local",
+    "watch": "concurrently \"nodemon --env-file=.env.local\" \"npm --prefix webapp run watch\"",
+    "console": "node --env-file=.env.local --experimental-repl-await",
+    "db:makemigrations": "node --env-file=.env.local --inspect ./node_modules/sequelize-mig/bin/sequelize-mig migration:make",
+    "db:migrate": "node --env-file=.env.local ./node_modules/sequelize-cli/lib/sequelize db:migrate"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@linear/sdk": "^27.0.0",
+    "axios": "^1.7.6",
+    "bcrypt": "^5.1.1",
+    "cls-hooked": "^4.2.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fs-promise": "^2.0.3",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.2",
+    "keycloak-connect": "^24.0.4",
+    "pg": "^8.11.5",
+    "qs": "^6.13.0",
+    "sequelize": "^6.37.3"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.4",
+    "sequelize-cli": "^6.6.2",
+    "sequelize-mig": "github:mbaez/sequelize-mig"
   }
 }
