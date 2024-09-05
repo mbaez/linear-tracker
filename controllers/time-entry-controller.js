@@ -64,9 +64,13 @@ class TimeEntryController extends ReadableController {
   }
 
   async #addComment(client, data) {
+    var textComment = `Spent \`${data.spentTime} hours\` in \`${data.date}\` working on some stuff.`;
+    if(!!data.note){
+      textComment = `Spent \`${data.spentTime} horus\` in \`${data.date}\` working on \`${data.note}\`. `
+    }
     const commentPayload = await client.createComment({
       issueId: data.issueId,
-      body: `Added ${data.spentTime}horus using linear time traker`,
+      body: textComment,
     });
 
     if (commentPayload.success) {
