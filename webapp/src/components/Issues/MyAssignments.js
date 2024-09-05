@@ -5,6 +5,7 @@ import StateBadge from "./StateBadge";
 import ProjectBadge from "./ProjectBadge";
 import LoadingRows from "../ui/LoadingRows";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from "../../constants/Api";
 
 /**
  * @param {*} props
@@ -28,7 +29,7 @@ export default function MyAssignments({}) {
     loading.current = true;
     fetching.current = true;
     try {
-      const response = await fetch(`/api/v1/profile/my-assignments`, {
+      const response = await fetch(`${API_BASE_URL}/profile/my-assignments`, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

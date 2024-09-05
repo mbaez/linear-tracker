@@ -1,14 +1,13 @@
 import { createContext } from "react";
+import { API_BASE_URL, APP_PATH } from "../constants/Api";
 
 export const LinearContext = createContext();
 
-const baseURL = window.location.href;
+const baseURL = window.location.origin + APP_PATH;
 const clientId = process.env.REACT_APP_LINEAR_CLIENT_ID;
 
 export const LinearContextProvider = ({ children }) => {
   const authenticated = () => !!getAccessToken();
-
-  const isDev = process.env.REACT_APP_ENVIRONMENT === "development";
 
   /**
    * @returns
@@ -39,7 +38,7 @@ export const LinearContextProvider = ({ children }) => {
   const getToken = async (code) => {
     const data = { code };
     try {
-      const response = await fetch("/api/v1/session/login", {
+      const response = await fetch(`${API_BASE_URL}/session/login`, {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
@@ -57,7 +56,7 @@ export const LinearContextProvider = ({ children }) => {
 
   return (
     <LinearContext.Provider
-      value={{ login, isDev, authenticated, getAccessToken, getToken }}
+      value={{ login, authenticated, getAccessToken, getToken }}
     >
       {children}
     </LinearContext.Provider>

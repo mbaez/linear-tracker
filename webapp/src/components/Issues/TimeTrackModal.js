@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { LinearContext } from "../../contexts/LinearContext";
 import useAlert from "../../hooks/useAlert";
+import { API_BASE_URL } from "../../constants/Api";
 
 /**
  * @param {*} props
@@ -38,7 +39,7 @@ export default forwardRef(function ({ issue }, ref) {
     };
     loading.current = true;
     try {
-      const response = await fetch(`/api/v1/time-entry`, {
+      const response = await fetch(`${API_BASE_URL}/time-entry`, {
         body: JSON.stringify(data),
         method: "POST",
         headers: {

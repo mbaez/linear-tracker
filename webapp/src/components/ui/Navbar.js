@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { LinearContext } from "../../contexts/LinearContext";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../constants/Api";
 
 /**
  * @param {*} props
@@ -19,7 +20,7 @@ const Navbar = ({}) => {
    */
   const getUser = async () => {
     loading.current = true;
-    const response = await fetch(`/api/v1/profile/me`, {
+    const response = await fetch(`${API_BASE_URL}/profile/me`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

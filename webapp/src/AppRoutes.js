@@ -7,10 +7,11 @@ import Callback from "./components/Callback";
 import MyAssignments from "./components/Issues/MyAssignments";
 import TimeEntries from "./components/Issues/TimeEntries";
 import { LinearContext } from "./contexts/LinearContext";
+import { APP_PATH, isDev } from "./constants/Api";
 
 export const AppRoutes = () => {
-  const { authenticated, isDev } = useContext(LinearContext);
-  const props = isDev ? {} : { basename: "/time-tracker" };
+  const { authenticated } = useContext(LinearContext);
+  const props = isDev ? {} : { basename: APP_PATH };
   return (
     <BrowserRouter {...props}>
       <Routes>

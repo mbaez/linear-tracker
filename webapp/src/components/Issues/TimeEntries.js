@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { LinearContext } from "../../contexts/LinearContext";
 import LoadingRows from "../ui/LoadingRows";
+import { API_BASE_URL } from "../../constants/Api";
 
 /**
  * @param {*} props
@@ -19,7 +20,7 @@ export default function TimeEntries({}) {
    */
   const getData = async () => {
     loading.current = true;
-    const response = await fetch(`/api/v1/time-entry`, {
+    const response = await fetch(`${API_BASE_URL}/time-entry`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
