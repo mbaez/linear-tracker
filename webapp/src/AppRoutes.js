@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext} from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import DefaultLayout from "./components/layouts/DefaultLayout";
 import Home from "./components/Home";
@@ -9,9 +9,10 @@ import TimeEntries from "./components/Issues/TimeEntries";
 import { LinearContext } from "./contexts/LinearContext";
 
 export const AppRoutes = () => {
-  const { authenticated } = useContext(LinearContext);
+  const { authenticated, isDev } = useContext(LinearContext);
+  const props = isDev ? {} : { basename: "/time-tracker" };
   return (
-    <BrowserRouter>
+    <BrowserRouter {...props}>
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<Home />} />

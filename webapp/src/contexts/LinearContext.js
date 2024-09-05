@@ -2,11 +2,13 @@ import { createContext } from "react";
 
 export const LinearContext = createContext();
 
-const baseURL = `${window.location.protocol}//${window.location.host}`;
+const baseURL = window.location.href;
 const clientId = process.env.REACT_APP_LINEAR_CLIENT_ID;
 
 export const LinearContextProvider = ({ children }) => {
   const authenticated = () => !!getAccessToken();
+
+  const isDev = process.env.REACT_APP_ENVIRONMENT === "development";
 
   /**
    * @returns
@@ -55,7 +57,7 @@ export const LinearContextProvider = ({ children }) => {
 
   return (
     <LinearContext.Provider
-      value={{ login, authenticated, getAccessToken, getToken }}
+      value={{ login, isDev, authenticated, getAccessToken, getToken }}
     >
       {children}
     </LinearContext.Provider>
