@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { LinearContext } from "../contexts/LinearContext";
+import { APP_PATH } from "../constants/Api";
 
 export default function Callback() {
   const loading = useRef(false);
   const [searchParams] = useSearchParams();
   const { getToken } = useContext(LinearContext);
-  const navigate = useNavigate();
 
   const getAccessToken = async () => {
     loading.current = true;
     const resp = await getToken(searchParams.get("code"));
     if (!!resp) {
-      navigate("/");
+      window.location = window.location.origin + APP_PATH;
     }
   };
 
